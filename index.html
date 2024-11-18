@@ -24,7 +24,7 @@
 						<ul>
 							<li><a href="index.html">Home</a></li>
 							<li>
-								<!-- <a href="" class="icon solid fa-angle-down">Layouts</a> -->
+								<!-- <a href="#" class="icon solid fa-angle-down">Layouts</a> -->
 								<ul>
 									<li><a href="generic.html">Generic</a></li>
 									<li><a href="contact.html">Contact</a></li>
@@ -121,7 +121,7 @@
 								<h3>Moss 메타버스</h3>
 								<p>모스 메타버스에서는 자신만의 아바타를 꾸미고 다양한 활동 현황을 실시간으로 확인하며 뱃지를 얻고, 성취감을 느끼며 동기부여를 받을 수 있다.</p>
 								<ul class="actions special">
-									<li><a href="" class="button alt">Moss 메타버스</a></li>
+									<li><a href="#" class="button alt">Moss 메타버스</a></li>
 								</ul>
 							</section>
 
@@ -133,27 +133,31 @@
 
 
 							<footer id="footer">
-						<section>
-							<form method="post" action="">
-								<div class="fields">
-									<div class="field">
-										<label for="name">이름</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">이메일</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">공원 위치 및 요청 사항</label>
-										<textarea name="message" id="message" rows="3"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="상담 신청하기"/></li>
-								</ul>
-							</form>
-						</section>
+
+				<section>
+					<form id="contactForm" method="post" action="#">
+						<div class="fields">
+							<div class="field">
+								<label for="name">이름</label>
+								<input type="text" name="name" id="name" required />
+							</div>
+							<div class="field">
+								<label for="email">이메일</label>
+								<input type="email" name="email" id="email" required />
+							</div>
+							<div class="field">
+								<label for="message">공원 위치 및 요청 사항</label>
+								<textarea name="message" id="message" rows="3" required></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="상담 신청하기" id="submitButton" /></li>
+						</ul>
+					</form>
+				</section>
+			</section>
+
+
 						<section class="split contact">
 							<section class="alt">
 								<h3>주소</h3>
@@ -200,20 +204,31 @@
 
 
 	
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/main.js"></script>
 	<script>
-		// DOMContentLoaded 이벤트 없이 바로 코드 실행
+		// 스크롤 버튼 이벤트
 		document.getElementById("scrollButton").addEventListener("click", function(event) {
-			event.preventDefault(); // 기본 클릭 동작 방지
-			const targetSection = document.querySelector("#main"); // 스크롤할 대상 섹션 선택
+			event.preventDefault();
+			const targetSection = document.querySelector("#main");
 			if (targetSection) {
-				// 스크롤 애니메이션
 				targetSection.scrollIntoView({
-					behavior: "smooth", // 부드러운 스크롤
-					block: "start" // 화면에서의 위치 설정
+					behavior: "smooth",
+					block: "start"
 				});
 			}
 		});
+
+		// 상담 신청 폼 이벤트
+		document.getElementById("contactForm").addEventListener("submit", function(event) {
+			event.preventDefault(); // 기본 제출 동작 방지
+			alert("신청이 완료되었습니다."); // 완료 팝업 표시
+			// 여기에서 추가 작업이 필요하면 구현 (e.g., 서버 요청)
+		});
 	</script>
+</body>
+</html>
 	
 </html>
+
 
